@@ -120,13 +120,13 @@ def main_handler(event, context):
     AllUsers = ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
                 "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"]
     
-    if event["Message"]=="AutoHealth":
+    if event["Message"]=="AutoHealth": #自动健康打卡事件，建议设置为一天一次
         logger.info("AutoHealth...")
         list(map(test_url,AllUsers))
-    elif event["Message"]=="AutoSign":
+    elif event["Message"]=="AutoSign": #自动签到事件，建议设置为10分钟一次
         logger.info("AutoSign...")
         list(map(AutoSign,AllUsers))
     return 0
 
-if __name__ == '__main__':
+if __name__ == '__main__': #debug
     main_handler({"Message":"AutoSign"}, "")
